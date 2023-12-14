@@ -3,22 +3,57 @@ title: "edaa"
 output: html_document
 date: "2023-12-14"
 ---
+Four characteristics make up the Iris dataset: sepal length, sepal width, petal length, and petal width. These characteristics allow one to identify trends and differences amongst iris species. My goal is to use exploratory data analysis (EDA) to uncover these inherent distinctions and demonstrate the value of exploratory analysis in comprehending plant variety.
 ```{r}
+
 # Load the Iris dataset
 data(iris)
 
 # View the first few rows of the dataset
 head(iris)
-# Summary statistics of the dataset
+```
+Summary statistics of the dataset
+The dataset comprises 150 samples, each representing a different iris flower, with four numerical features. This exploration kicked off by checking the first few rows of the dataset to grasp its format and ensure seamless analysis.
+```{r}
 summary(iris)
 # Histogram for Sepal Length
-hist(iris$Sepal.Length, main = "Distribution of Sepal Length", xlab = "Sepal Length")
 
+hist(iris$Sepal.Length, main = "Distribution of Sepal Length", xlab = "Sepal Length")
+```
+Length of Sepals:
+The length of the sepals on average is 5.843 cm.
+The range of the interquartile (IQR) is 5.1 cm (Q1) to 6.4 cm (Q3).
+Sepal Breadth:
+
+The breadth of the sepals varies from 2.0 to 4.4 cm.
+Sepal widths average about 3.057 centimeters.
+The interquartile range (IQR) is 2.8 cm (Q1)–3.3 cm (Q3).
+Length of Petals:
+
+The length of the petals ranges from 1.0 to 6.9 cm.
+The average length of a petal is roughly 3.758 cm.
+From 1.6 cm (Q1) to 5.1 cm (Q3), the IQR is spread out.
+Petal Length:
+
+There is a range of 0.1 to 2.5 cm in petal width.
+The petal width on average is 1.199 cm.
+Between 0.3 cm (Q1) and 1.8 cm (Q3) is the IQR range.
+Distribution of Species:Three species (setosa, versicolor, and virginica) with fifty samples apiece make up the dataset.
+There are 150 samples altogether in the dataset, 50 of each species, representing them evenly.
+These observations offer a thorough comprehension of the dataset's iris species distribution, ranges, and central tendencies of the measurements.
+```{r}
 # Similarly, create histograms for other numerical variables like Sepal.Width, Petal.Length, Petal.Width
 # Boxplot comparing Species and Sepal Length
 boxplot(Sepal.Length ~ Species, data = iris, main = "Sepal Length by Species")
+```
+Differential traits between the Iris species can be identified by analyzing their sepal lengths. Setosa has the shortest sepal lengths, with a median of 5.0 and a mean of 5.006. Virginica has the longest lengths, with a mean of 6.588 and a median of 6.5, while Versicolor has intermediate values, with a mean of 5.936 and a median of 5.9. The slight variations in mean and median values point to comparatively symmetric distributions of sepal lengths across all species. The sepal lengths of Virginica, Versicolor, and Setosa increase gradually. Setosa is clearly distinct from the other species, but Virginica stands out as being very long in relation to the others. These results demonstrate observable differences in sepal length across the Iris species, which are important for their recognition and differentiation in the dataset.
+
+```{r}
 # Scatterplot matrix to visualize relationships between variables
 pairs(iris[, 1:4], main = "Scatterplot Matrix of Iris Dataset")
+
+
+
 ```
 
 
@@ -37,22 +72,7 @@ pairs(iris[, 1:4], main = "Scatterplot Matrix of Iris Dataset")
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## R Markdown
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
 
-```{r cars}
-summary(cars)
-```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
